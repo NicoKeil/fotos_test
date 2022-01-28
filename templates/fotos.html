@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Take or select photo(s) and upload</title>
+    <script type="text/javascript">
+        const videoElement = document.querySelector("video");
+        const constraints = {
+            audio: false, video:true}
+
+            navigator.getUserMedia = navigator.getUserMedia ||
+            navigator.webkitGetUserMedia ||
+            navigator.mozGetUserMedia;
+            
+            if (navigator.getUserMedia) {
+            navigator.getUserMedia({ audio: false, video: { width: 1280, height: 720 } },
+            function(stream) {
+                var video = document.querySelector('video');
+                video.srcObject = stream;
+            video.onloadedmetadata = function(e) {
+                video.play();
+            };
+            },
+            function(err) {
+            console.log("The following error occurred: " + err.name);
+            }
+            );
+            } else {
+            console.log("getUserMedia not supported");
+            }
+    </script>
+</head>
+
+<body>
+    <form action="">
+        <input type="file" accept="image/*;capture=camera">
+    </form>
+    <h1>sdhfvhsdfsabjkas</h1>
+    <video autoplay></video>
+</body>
+</html>
